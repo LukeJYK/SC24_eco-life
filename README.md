@@ -1,3 +1,3 @@
-# Eco-Life: High Performance and Carbon-Aware Serverless Workloads Scheduling via Multi-generation Hardware
+# SC24.AD/AE
 
 This repository is for AD/AE of Eco-Life.
