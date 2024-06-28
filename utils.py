@@ -16,7 +16,6 @@ def read_func_mem_size(name):
     return app[name]
 
 def raw_to_average():
-    # read function size
     app = {}
     with open('./function_mem.csv', newline='', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile)
@@ -138,7 +137,7 @@ def compute_exe(app, server_pair,CI):
     new_warm_carbon = new_warm_oc+new_warm_ec
     old_warm_carbon = old_warm_oc+old_warm_ec
 
-    return (old_cold_carbon, new_cold_carbon) , (old_warm_carbon, new_warm_carbon)
+    return (old_cold_carbon,new_cold_carbon),(old_warm_carbon,new_warm_carbon)
 
 
 
@@ -168,30 +167,16 @@ def get_st(app, server):
         data = json.load(data_file)[0]
     return data['cs'] + data['exe'], data['exe']
 
-def load_carbon_intensity_hour(
-    region: str="US-CAL",
-    start_hour: int=8303,
-    interval: int=100,
-):
-    print(f"{Path(__file__).parents[1]}/carbon_intensity/modify2.csv")
-    region_data = glob(f"{Path(__file__).parents[0]}/carbon_intensity/modify2.csv")[0]
-    df = pd.read_csv(region_data)
-    data = df["Carbon Intensity gCO₂eq/kWh (direct)"].values[start_hour:start_hour+int(interval)]
-    ci_max = df["Carbon Intensity gCO₂eq/kWh (direct)"].max()
-    ci_min = df["Carbon Intensity gCO₂eq/kWh (direct)"].min()
-    return data.tolist(), ci_max, ci_min
 
 def load_carbon_intensity(
     region: str="US-CAL",
     start_hour: int=800,
-    interval: int=1*24*60,
+    interval: int=12*24*60,
 ):
-    #print(f"{Path(__file__).parents[0]}/carbon_intensity/{region}*_2023_hourly.csv")
-    
     region_data = glob(f"{Path(__file__).parents[0]}/carbon_intensity/{region}*_2023_hourly.csv")[0]
 
     df = pd.read_csv(region_data)
-    data = df["Carbon Intensity gCO₂eq/kWh (direct)"].values[start_hour:start_hour+int(interval/60)]
+    data = df["Carbon Intensity gCO₂eq/kWh (direct)"].values[start_hour:start_hour+int(12*24*60/60)]
     ci_avg = df["Carbon Intensity gCO₂eq/kWh (direct)"].mean()
     ci_max = df["Carbon Intensity gCO₂eq/kWh (direct)"].max()
     ci_min = df["Carbon Intensity gCO₂eq/kWh (direct)"].min()
@@ -200,7 +185,7 @@ def load_carbon_intensity(
     for item in data_list:
         for _ in range(60):
             ci.append(item)
-    return ci, np.max(ci), np.min(ci),ci_avg
+    return ci,ci_max,ci_min,ci_avg
 
 def function_mapping(duration_list, app_list):
     duration_list_norm =  (duration_list- np.min(duration_list)) / ( np.max(duration_list) - np.min(duration_list))
@@ -361,7 +346,7 @@ def adjust_pool(mem,function_mem_trace,pool,decision_pool,interval_list,old_or_n
             pass
         else:
             sys.exit("error in discarded dict")
-    return new_pool,discarded_dict,kat_carbon
+    return new_pool,discarded_dict,kat_carbon,result_carbon
 
 
 def pack_items(box_capacity, sizes, quantities, item_indices, index_list):
@@ -454,12 +439,12 @@ def add_discard_pool(original_pool, discard_pool,mem,function_mem_trace,function
     
         discarded_dict = {key: value for key, value in combined_dict.items() if key not in new_pool}
         
-        return new_pool,kat_carbon,discarded_dict
+        return new_pool,kat_carbon,discarded_dict,result_carbon
     else:
         #not out of memory
         #combine all
         combined_dict = {**original_pool, **discard_pool}
-        return combined_dict,0,0
+        return combined_dict,0,0,result_carbon
 
     
     

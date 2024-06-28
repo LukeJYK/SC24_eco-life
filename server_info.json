@@ -1,0 +1,38 @@
+[
+        {
+            "name": "i3",
+            "core":36,
+            "ec_cpu":34.7,
+            "mem":512,
+            "ec_ram":1584,
+            "cpu_idle_energy":18233.65,
+            "dram_idle_energy":1543.392
+        },
+        {
+            "name": "c5n",
+            "core":36,
+            "ec_cpu":39.3,
+            "mem":192,
+            "ec_ram":624,
+            "cpu_idle_energy":17329.17,
+            "dram_idle_energy":2600
+        },
+        {
+            "name": "c5",
+            "core":48,
+            "ec_cpu":54,
+            "mem":192,
+            "ec_ram":744,
+            "cpu_idle_energy":16977.55,
+            "dram_idle_energy":3203.532
+        },
+        {
+            "name": "m5zn",
+            "core":24,
+            "ec_cpu":36,
+            "mem":192,
+            "ec_ram":744,
+            "cpu_idle_energy":15000,
+            "dram_idle_energy":2450
+        }
+]

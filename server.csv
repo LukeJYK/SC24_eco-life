@@ -1,0 +1,5 @@
+EC2 type,CPU type,cpu time,dram type,dram time,dram type,EC for CPU (kgCO2),num of cores,EC per core for CPU (kgCO2),EC for RAM (kgCO2),EC for RAM per GB
+i3,Xeon E5-2686 ,2016,Micron,2018,36ASF4G72PZ-2G6E1,34.7,36,0.9638888889,1584,3.09375
+c5n,Xeon Platinum 8124M,2017,Micron,2018,18ASF2G72PDZ-2G9E1,39.3,36,1.091666667,624,3.25
+c5,Xeon Platinum 8275L,2019,Samsung,,M393A2K43BB3-CVF,54,48,1.125,744,3.875
+m5zn,Xeon Platinum 8252C,2020,samsung,,M393A2K43BB3-CVF,36,24,1.5,744,3.875
