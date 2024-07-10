@@ -10,6 +10,8 @@ Eco-Life applies a customized Particle Swarm Optimization (PSO) algorithm to exe
 ## Directory
 ```
 │SC24_eco-life/
+  ├──one_day/
+  ├──three_day/
   ├──carbon_intensity/
   ├──data/
   ├──motivations/
