@@ -1,7 +1,8 @@
-## ECO-LIFE: High Performance and Carbon-Aware Serverless Workloads Scheduling via Multi-generation Hardware
+## ECOLIFE: Carbon-Aware Serverless Function Scheduling for Sustainable Computing
 
 ## Description
-Eco-Life applies a customized Particle Swarm Optimization (PSO) algorithm to execute serverless function workloads based on multi-generation hardware. The goal is to co-optimize service time (both the execution time and cold start time) and carbon footprint (embodied carbon footprint and operational carbon footprint during both the execution period and keep-alive period).
+In this paper, we present EcoLife, an innovative strategy that leverages multi-generation hardware to co-optimize carbon footprint and service time within the serverless environment. EcoLife extends Particle Swarm Optimization (PSO) to adapt to the variations in serverless computing for making keep-alive and execution decisions. Our experimental results show that EcoLife effectively reduces carbon emissions while maintaining high performance for function execution.
+
 
 ## Setup:
 
