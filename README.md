@@ -6,7 +6,7 @@ In this paper, we present EcoLife, an innovative strategy that leverages multi-g
 
 ## Setup:
 
-## Running ECO-LIFE:
+## Running EcoLife:
 
 ## Directory
 ```
