@@ -1,0 +1,10 @@
+[
+    {
+        "cs": 2.31129,
+        "cs_energy_cpu": 145.21449,
+        "cs_energy_dram": 22.890907,
+        "exe": 1.9089550000000002,
+        "exe_energy_cpu": 151.43411,
+        "exe_energy_dram": 21.176193
+    }
+]
